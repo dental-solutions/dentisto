@@ -121,7 +121,7 @@ module.exports = {
       if (user.get('type')) {
         Model.Student.findById(user.get('id')).then(function(student) {
           student.updateAttributes(req.body).then(function() {
-            res.status(201).json({message: 'Your profile has been updated successfully.'});
+            res.json({'message': 'Your profile has been updated successfully.'});
           });
         });
       } else {
@@ -133,8 +133,6 @@ module.exports = {
       }
       res.status(201).json({message: 'Your profile has been updated successfully.'});
     })
-    .error(function() { next(new Error('Opps! something went wrong please try again')); });
+    //.error(function() { next(new Error('Opps! something went wrong please try again')); });
   }  
 };
-
-
